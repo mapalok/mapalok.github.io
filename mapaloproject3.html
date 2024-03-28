@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <link href="/normalize.css" rel="stylesheet">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100&family=Kdam+Thmor+Pro&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: green;
+}
+div {
+  height: 200px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Londrina Shadow', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: white;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: orange;
+  margin: 0px 0 70px 0;
+  font-family: 'kdam thmor pro', sans-serif;
+}
+p {
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(255,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(255,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(255,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+p {
+  font-family: 'Kanit', sans-serif;
+  color: yellow;
+  
+  
+  }
+  input {
+  	font-size: 22px;
+  }
+
+
+.first{
+  background-image: url("https://www.papajohns.com/free-pizza/img/hero-free-pizza.jpg");
+}
+.second{
+  background-image: url("https://www.papajohns.com/static-assets/a/images/web/product/sides/Tuscan_Six_Cheese-Cheesesticks-88174.jpg");
+}
+.dessert{
+  background-image: url("https://www.papajohns.com/static-assets/a/images/web/product/pizzas/std_Hawaiian-compressed.jpg");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+    font-family: 'montserrat', sans-serif;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>papa jhons pizza</h1>
+<h2>new yorks finest</h2>
+<div class="first">
+	 <input class="quantities" type="number" min="0" style="width: 50px">
+  <p>pepperoni pizza with cheese extra crust <span class="price">$24</span><br />
+  <small>its made out of cheese and thick crust and pepperoni to seal the deal</small></p>
+</div>
+
+<div class="second">
+	 <input class="quantities" type="number" min="0" style="width: 50px">
+  <p>plain cheese pizza with extra cheese <span class="price">$21</span><br />
+  <small>just plain crust but whit a extra layer of extra cheese.</small></p>
+</div>
+  
+<div class="dessert">
+	 <input class="quantities" type="number" min="0" style="width: 50px">
+  <p>meat with pineapple pizza <span class="price">$10</span><br />
+  <small>pizza with pepperoni and pineapple to go with it .</small></p>
+</div> 
+<input id="Name" placeholder="Your Name">
+  <input id="Email" placeholder="Your email">
+  <input id="submit" type="submit">
+  <br><br>
+
+<script>
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"; 
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+  
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDMc9xLPmITomxFmBKHbnIvopryfdC8rIY",
+    authDomain: "mapaloproject3.firebaseapp.com",
+    projectId: "mapaloproject3",
+    storageBucket: "mapaloproject3.appspot.com",
+    messagingSenderId: "1033526377487",
+    appId: "1:1033526377487:web:2341645a560243e437b77a"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+   const db = getDatabase(app);
+const Name = document.querySelector("#Name") 
+	const Email = document.querySelector("#Email")
+   const quantities = document.querySelectorAll(".quantities")
+   const prices = document.querySelectorAll(".price")
+const itemsList = ["pepperoni pizza ", "plain cheese pizza", "pineapple pizza"]
+   
+	document.querySelector('#submit').addEventListener('click', Submit)
+   
+	
+	
+	function Submit() {
+		  const timestamp = buildTimestamp()
+		let total = 0
+  	  let cart = { }
+  	  for  (let i=0; i<quantities.length; i=i+1) {
+  	  	if (quantities[i].value != "0" && quantities[i].value != "") {
+			  let price = prices[i].innerHTML.replace('$', '')
+			  total = total + quantities[i].value * price	
+  	  		cart[itemsList[i]] = parseInt(quantities[i].value) 
+  	  	}
+  	  	quantities[i].value = ""
+  	  }
+		
+	  
+		  set(ref(db, timestamp), {
+			  Name: Name.value,
+		      email: Email.value,
+			  cart: cart,
+			  totalPrice: total,
+		      paid: "not yet",
+		  });
+
+		  Name.value = ""
+		  Email.value = ""
+		}
+		
+
+		function buildTimestamp() {
+			  const now = new Date();
+			  let timestamp = now.getFullYear().toString() + "/";
+			  //const month = now.toLocaleString('default', { month: 'long' });
+
+			  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+			  month = month.toString()
+			  month = addLeadingZero(month)
+			  timestamp += month + "/"; 
+
+			  let date = now.getDate().toString()
+			  date = addLeadingZero(date)
+			  timestamp += date + "/";
+
+			  let hours = now.getHours().toString()
+			  hours = addLeadingZero(hours)
+			  timestamp += hours + ":";
+
+			  let minutes = now.getMinutes().toString()
+			  minutes = addLeadingZero(minutes)
+			  timestamp += minutes + ":";
+
+			  let seconds = now.getSeconds().toString()
+			  seconds = addLeadingZero(seconds)
+			  timestamp += seconds;
+  
+			  return timestamp
+			}
+	
+			function addLeadingZero(units) {
+				if (units.length < 2) {
+					units = "0" + units
+				}
+				return units
+			}
+</script>
